@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ocp-itpables
+  namespace: iptables-enforcer
+  labels:
+    app: iptables-enforcer
+spec:
+  selector:
+    matchLabels:
+      app: iptables-enforcer
+  template:
+    metadata:
+      labels:
+        app: iptables-enforcer
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/appnode
+        effect: NoSchedule
+      containers:
+      - name: iptables-enforcer
+        image: gcr.io/fluentd-elasticsearch/fluentd:v2.5.1
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi
+      terminationGracePeriodSeconds: 30
