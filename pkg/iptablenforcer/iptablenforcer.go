@@ -54,7 +54,7 @@ OS_FIREWALL_ALLOW --> Input for NodeExporter OCP ETC
 OPENSHIFT-ADMIN-OUTPUT-RULES --> OUTPUT from POD
 */
 
-func applRules() {
+func ApplRules() {
 	ipt, err := iptables.New()
 	
 	chain := "GUO_OPENSHIFT_INPUT"
