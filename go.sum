@@ -1,5 +1,3 @@
-github.com/bigg01/go-iptables v0.0.0-20190714111714-a8e185f00e7a h1:Gj4Dekwhnz/6L3RusorPEjoLKaUh8MGH3918MRNXoP8=
-github.com/bigg01/go-iptables v0.0.0-20190714111714-a8e185f00e7a/go.mod h1:YtSQiG/okdLiGDCe9ZHDKY0Ba5AJL9gyuDmQ5KiycWM=
 github.com/coreos/go-iptables v0.4.1 h1:TyEMaK2xD/EcB0385QcvX/OvI2XI7s4SJEI2EhZFfEU=
 github.com/coreos/go-iptables v0.4.1/go.mod h1:/mVI274lEDI2ns62jHCDnCyBF9Iwsmekav8Dbxlm1MU=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
