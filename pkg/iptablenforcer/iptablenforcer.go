@@ -69,30 +69,10 @@ func ApplRules() {
 		log.Infof("List Chain works: %v", listChain)
 	}
 
-	// put a simple rule in
-	/*
-		err = ipt.AppendUnique("filter", chain, "-s", "0/0", "-j", "ACCEPT")
-		if err != nil {
-			fmt.Printf("Append failed: %v", err)
-		}
-	*/
-
-	//fwRuelSet :=  firewallRules{firewallRule{chain: "GUO_OPENSHIFT_INPUT", rule: []string{"-p", "tcp", "--dport", "22", "-m", "conntrack", "--ctstate", "NEW,ESTABLISHED", "-j", "ACCEPT", "-m", "comment", "--comment", "\"tkggo test\""}}
-
 	fwRules := firewallRule{chain: "GUO_OPENSHIFT_INPUT", rule: []string{"-p", "tcp", "--dport", "22", "-m", "conntrack", "--ctstate", "NEW,ESTABLISHED", "-j", "ACCEPT", "-m", "comment", "--comment", "\"tkggo test\""}}
 	fwRules1 := firewallRule{chain: "GUO_OPENSHIFT_INPUT", rule: []string{"-p", "tcp", "--dport", "23", "-m", "conntrack", "--ctstate", "NEW,ESTABLISHED", "-j", "ACCEPT", "-m", "comment", "--comment", "\"tkggo test 23\""}}
 	fwRuelSet := firewallRules{[]firewallRule{fwRules, fwRules1}}
 
-	/*
-	   	e, err := json.Marshal(fwRuelSet)
-	       if err != nil {
-	           fmt.Println(err)
-	           return
-	       }
-	       fmt.Println(string(e))
-	*/
-
-	//fmt.Println(fwRuelSet.rules)
 	for _, rr := range fwRuelSet.rules {
 		log.Infoln(rr.chain, rr.rule)
 		err = ipt.AppendUnique("filter", rr.chain, rr.rule...)
@@ -103,14 +83,6 @@ func ApplRules() {
 		}
 	}
 
-	/*
-		listChain, err = ipt.List("filter", chain)
-		if err != nil {
-			fmt.Printf("ListChains failed: %v", err)
-		}
-		fmt.Println("===>>")
-		fmt.Println(listChain)
-	*/
 	stats, err := ipt.Stats("filter", chain)
 	if err != nil {
 		fmt.Printf("stats failed: %v", err)

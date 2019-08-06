@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/bigg01/ocp-iptables/pkg/iptablenforcer"
 	log "github.com/sirupsen/logrus"
-	config "github.com/spf13/viper"
 	"os"
 )
 
@@ -25,16 +24,6 @@ func init() {
 }
 
 func main() {
-	config.SetConfigType("yaml")
-	config.SetConfigName("iptables.config") // name of config file (without extension)
-	config.AddConfigPath(".")               // optionally look for config in the working directory
-	err := config.ReadInConfig()            // Find and read the config file
-	if err != nil { // Handle errors reading the config file
-		//panic(fmt.Errorf("Fatal error config file: %s \n", err))
-		log.Errorf("Fatal error config file: %s \n", err)
-	}
-	config.Get("GUO_OPENSHIFT_INPUT")
-
 	log.Infof("Start Iptables enforcer done...")
 	iptablenforcer.ApplRules()
 
