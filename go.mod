@@ -1,4 +1,4 @@
-module github.com/bigg01/go-iptables
+module github.com/bigg01/ocp-iptables-daemonset
 
 go 1.12
 
