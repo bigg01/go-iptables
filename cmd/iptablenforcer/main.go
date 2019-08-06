@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/bigg01/go-iptables/pkg/iptablenforcer"
+	"github.com/bigg01/ocp-iptables/pkg/iptablenforcer"
 	log "github.com/sirupsen/logrus"
 	config "github.com/spf13/viper"
 	"os"

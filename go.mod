@@ -1,4 +1,5 @@
 module github.com/bigg01/ocp-iptables
+
 go 1.12
 
 require (
